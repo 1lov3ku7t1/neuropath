@@ -5,7 +5,7 @@ type Lang = "en" | "ru";
 const translations = {
   en: {
     // Landing
-    neuropath: "neuropath",
+    neuropath: "neurotrack",
     menu: "Menu",
     heroLine1: "Advancing the",
     heroLine2: "spirit",
@@ -32,7 +32,7 @@ const translations = {
     // Auth
     welcomeBack: "Welcome back",
     createAccount: "Create account",
-    signInDesc: "Sign in to your NeuroPath account",
+    signInDesc: "Sign in to your NeuroTrack account",
     signUpDesc: "Start your neural health journey",
     fullName: "Full Name",
     email: "Email",
@@ -149,7 +149,7 @@ const translations = {
     close: "Close",
   },
   ru: {
-    neuropath: "нейропуть",
+    neuropath: "нейротрек",
     menu: "Меню",
     heroLine1: "Продвигая",
     heroLine2: "дух",
@@ -175,7 +175,7 @@ const translations = {
 
     welcomeBack: "С возвращением",
     createAccount: "Создать аккаунт",
-    signInDesc: "Войдите в ваш аккаунт NeuroPath",
+    signInDesc: "Войдите в ваш аккаунт NeuroTrack",
     signUpDesc: "Начните путь к здоровью",
     fullName: "Полное имя",
     email: "Эл. почта",
