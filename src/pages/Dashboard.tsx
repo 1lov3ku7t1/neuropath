@@ -5,7 +5,7 @@ import { useLang } from "@/contexts/LangContext";
 import { supabase } from "@/integrations/supabase/client";
 import SettingsMenu from "@/components/SettingsMenu";
 import {
-  Brain, PenTool, Mic, ClipboardList, Hand, LogOut, TrendingUp, Calendar, ArrowRight, Menu,
+  Brain, PenTool, Mic, ClipboardList, Hand, LogOut, TrendingUp, Calendar, ArrowRight, Menu, BookOpen, Gamepad2,
 } from "lucide-react";
 
 interface TestResult {
