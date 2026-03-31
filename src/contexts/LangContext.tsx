@@ -277,6 +277,8 @@ const translations = {
     russian: "Русский",
     close: "Закрыть",
   },
+};
+
 type Translations = Record<keyof typeof translations.en, string>;
 
 interface LangContextType {
