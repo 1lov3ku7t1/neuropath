@@ -21,10 +21,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === "white-purple") {
-      root.classList.add("theme-white-purple");
-    } else {
-      root.classList.remove("theme-white-purple");
+    const themes = ["theme-white-purple", "theme-ocean-blue", "theme-rose-gold", "theme-forest-green"];
+    themes.forEach(t => root.classList.remove(t));
+    if (theme !== "dark-glass") {
+      root.classList.add(`theme-${theme}`);
     }
   }, [theme]);
 
