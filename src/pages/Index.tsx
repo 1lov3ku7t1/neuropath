@@ -146,7 +146,10 @@ const Index = () => {
 
           {/* Community Card */}
           <div className="mt-6 self-end">
-            <div className="liquid-glass w-56 rounded-2xl p-5">
+            <button
+              onClick={() => navigate("/auth")}
+              className="liquid-glass w-56 cursor-pointer rounded-2xl p-5 text-left transition-transform hover:scale-105"
+            >
               <h3 className="mb-2 text-sm font-medium text-foreground">
                 Join our ecosystem
               </h3>
@@ -154,7 +157,7 @@ const Index = () => {
                 Connecting patients, caregivers and neurologists in one unified
                 platform.
               </p>
-            </div>
+            </button>
           </div>
 
           {/* Bottom Feature Section */}
