@@ -13,6 +13,8 @@ import SpiralTest from "./pages/SpiralTest";
 import VoiceTest from "./pages/VoiceTest";
 import SymptomTest from "./pages/SymptomTest";
 import TappingTest from "./pages/TappingTest";
+import Learn from "./pages/Learn";
+import Games from "./pages/Games";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +36,8 @@ const App = () => (
                 <Route path="/test/voice" element={<VoiceTest />} />
                 <Route path="/test/symptoms" element={<SymptomTest />} />
                 <Route path="/test/tapping" element={<TappingTest />} />
+                <Route path="/learn" element={<Learn />} />
+                <Route path="/games" element={<Games />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AuthProvider>
