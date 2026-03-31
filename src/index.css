@@ -266,3 +266,63 @@
     rgba(124, 58, 237, 0.3) 100%
   );
 }
+
+/* Ocean blue theme glass overrides */
+.theme-ocean-blue .liquid-glass {
+  background: rgba(59, 130, 246, 0.06);
+  box-shadow: inset 0 1px 1px rgba(59, 130, 246, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.theme-ocean-blue .liquid-glass::before {
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0.1) 20%, transparent 40%, transparent 60%, rgba(59, 130, 246, 0.1) 80%, rgba(59, 130, 246, 0.3) 100%);
+}
+.theme-ocean-blue .liquid-glass-strong {
+  background: rgba(59, 130, 246, 0.08);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(59, 130, 246, 0.15);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
+.theme-ocean-blue .liquid-glass-strong::before {
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0.15) 20%, transparent 40%, transparent 60%, rgba(59, 130, 246, 0.15) 80%, rgba(59, 130, 246, 0.4) 100%);
+}
+
+/* Rose gold theme glass overrides */
+.theme-rose-gold .liquid-glass {
+  background: rgba(225, 29, 72, 0.04);
+  box-shadow: inset 0 1px 1px rgba(225, 29, 72, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.theme-rose-gold .liquid-glass::before {
+  background: linear-gradient(180deg, rgba(225, 29, 72, 0.2) 0%, rgba(225, 29, 72, 0.08) 20%, transparent 40%, transparent 60%, rgba(225, 29, 72, 0.08) 80%, rgba(225, 29, 72, 0.2) 100%);
+}
+.theme-rose-gold .liquid-glass-strong {
+  background: rgba(225, 29, 72, 0.06);
+  box-shadow: 0 4px 16px rgba(225, 29, 72, 0.08), inset 0 1px 1px rgba(225, 29, 72, 0.1);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
+.theme-rose-gold .liquid-glass-strong::before {
+  background: linear-gradient(180deg, rgba(225, 29, 72, 0.3) 0%, rgba(225, 29, 72, 0.12) 20%, transparent 40%, transparent 60%, rgba(225, 29, 72, 0.12) 80%, rgba(225, 29, 72, 0.3) 100%);
+}
+
+/* Forest green theme glass overrides */
+.theme-forest-green .liquid-glass {
+  background: rgba(34, 197, 94, 0.06);
+  box-shadow: inset 0 1px 1px rgba(34, 197, 94, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.theme-forest-green .liquid-glass::before {
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.3) 0%, rgba(34, 197, 94, 0.1) 20%, transparent 40%, transparent 60%, rgba(34, 197, 94, 0.1) 80%, rgba(34, 197, 94, 0.3) 100%);
+}
+.theme-forest-green .liquid-glass-strong {
+  background: rgba(34, 197, 94, 0.08);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(34, 197, 94, 0.15);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
+.theme-forest-green .liquid-glass-strong::before {
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.4) 0%, rgba(34, 197, 94, 0.15) 20%, transparent 40%, transparent 60%, rgba(34, 197, 94, 0.15) 80%, rgba(34, 197, 94, 0.4) 100%);
+}
