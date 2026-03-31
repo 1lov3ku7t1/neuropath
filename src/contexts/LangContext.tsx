@@ -5,7 +5,7 @@ type Lang = "en" | "ru";
 const translations = {
   en: {
     // Landing
-    neuropath: "neuropath",
+    neuropath: "neurotrack",
     menu: "Menu",
     heroLine1: "Advancing the",
     heroLine2: "spirit",
