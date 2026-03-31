@@ -32,11 +32,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
-            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-            <Route path="/test/spiral" element={<ProtectedRoute><SpiralTest /></ProtectedRoute>} />
-            <Route path="/test/voice" element={<ProtectedRoute><VoiceTest /></ProtectedRoute>} />
-            <Route path="/test/symptoms" element={<ProtectedRoute><SymptomTest /></ProtectedRoute>} />
-            <Route path="/test/tapping" element={<ProtectedRoute><TappingTest /></ProtectedRoute>} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/test/spiral" element={<SpiralTest />} />
+            <Route path="/test/voice" element={<VoiceTest />} />
+            <Route path="/test/symptoms" element={<SymptomTest />} />
+            <Route path="/test/tapping" element={<TappingTest />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
