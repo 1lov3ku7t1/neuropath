@@ -2,19 +2,65 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/contexts/LangContext";
 import SettingsMenu from "@/components/SettingsMenu";
-import { Brain, Menu, ArrowLeft, BookOpen, Play, ExternalLink } from "lucide-react";
+import { Brain, Menu, ArrowLeft, BookOpen, Play, ExternalLink, ChevronDown, ChevronUp, AlertTriangle, Pill, HeartPulse, FlaskConical, Home, Stethoscope } from "lucide-react";
 
 const Learn = () => {
   const { t } = useLang();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [expandedArticle, setExpandedArticle] = useState<number | null>(null);
+
+  const toggleArticle = (i: number) => setExpandedArticle(expandedArticle === i ? null : i);
 
   const articles = [
-    { title: t.learnWhat, desc: t.learnWhatDesc, icon: "🧠" },
-    { title: t.learnSymptoms, desc: t.learnSymptomsDesc, icon: "📋" },
-    { title: t.learnCauses, desc: t.learnCausesDesc, icon: "🔬" },
-    { title: t.learnTreatment, desc: t.learnTreatmentDesc, icon: "💊" },
-    { title: t.learnLiving, desc: t.learnLivingDesc, icon: "🏡" },
-    { title: t.learnResearch, desc: t.learnResearchDesc, icon: "📊" },
+    {
+      title: t.learnWhat,
+      desc: t.learnWhatDesc,
+      icon: "🧠",
+      detail: t.learnWhatDetail,
+      keyIcon: Brain,
+    },
+    {
+      title: t.learnSymptoms,
+      desc: t.learnSymptomsDesc,
+      icon: "📋",
+      detail: t.learnSymptomsDetail,
+      keyIcon: AlertTriangle,
+    },
+    {
+      title: t.learnCauses,
+      desc: t.learnCausesDesc,
+      icon: "🔬",
+      detail: t.learnCausesDetail,
+      keyIcon: FlaskConical,
+    },
+    {
+      title: t.learnTreatment,
+      desc: t.learnTreatmentDesc,
+      icon: "💊",
+      detail: t.learnTreatmentDetail,
+      keyIcon: Pill,
+    },
+    {
+      title: t.learnSigns,
+      desc: t.learnSignsDesc,
+      icon: "⚠️",
+      detail: t.learnSignsDetail,
+      keyIcon: Stethoscope,
+    },
+    {
+      title: t.learnLiving,
+      desc: t.learnLivingDesc,
+      icon: "🏡",
+      detail: t.learnLivingDetail,
+      keyIcon: Home,
+    },
+    {
+      title: t.learnResearch,
+      desc: t.learnResearchDesc,
+      icon: "📊",
+      detail: t.learnResearchDetail,
+      keyIcon: HeartPulse,
+    },
   ];
 
   const videos = [
@@ -28,6 +74,8 @@ const Learn = () => {
     { title: "Parkinson's Foundation", url: "https://www.parkinson.org", desc: t.resourcePF },
     { title: "Michael J. Fox Foundation", url: "https://www.michaeljfox.org", desc: t.resourceMJF },
     { title: "WHO — Parkinson Disease", url: "https://www.who.int/news-room/fact-sheets/detail/parkinson-disease", desc: t.resourceWHO },
+    { title: "Mayo Clinic — Parkinson's", url: "https://www.mayoclinic.org/diseases-conditions/parkinsons-disease/symptoms-causes/syc-20376055", desc: t.resourceMayo },
+    { title: "NIH — NINDS Parkinson's", url: "https://www.ninds.nih.gov/health-information/disorders/parkinsons-disease", desc: t.resourceNIH },
   ];
 
   return (
@@ -57,14 +105,60 @@ const Learn = () => {
           </h1>
           <p className="mb-8 text-sm text-foreground/60">{t.learnIntro}</p>
 
-          {/* Articles */}
-          <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-foreground/50">{t.learnArticles}</h2>
-          <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Expandable Articles */}
+          <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-foreground/50">
+            <BookOpen className="mr-1 inline h-3 w-3" /> {t.learnArticles}
+          </h2>
+          <div className="mb-10 space-y-3">
             {articles.map((a, i) => (
-              <div key={i} className="liquid-glass flex flex-col gap-3 rounded-2xl p-5">
-                <span className="text-2xl">{a.icon}</span>
-                <h3 className="text-sm font-medium text-foreground">{a.title}</h3>
-                <p className="text-xs leading-relaxed text-foreground/60">{a.desc}</p>
+              <div key={i} className="liquid-glass overflow-hidden rounded-2xl transition-all">
+                <button
+                  onClick={() => toggleArticle(i)}
+                  className="flex w-full items-center gap-4 p-5 text-left transition-transform hover:scale-[1.01]"
+                >
+                  <span className="text-2xl">{a.icon}</span>
+                  <div className="flex-1">
+                    <h3 className="text-sm font-medium text-foreground">{a.title}</h3>
+                    <p className="text-xs text-foreground/60">{a.desc}</p>
+                  </div>
+                  {expandedArticle === i ? (
+                    <ChevronUp className="h-4 w-4 text-foreground/40" />
+                  ) : (
+                    <ChevronDown className="h-4 w-4 text-foreground/40" />
+                  )}
+                </button>
+                {expandedArticle === i && (
+                  <div className="border-t border-foreground/10 px-5 pb-5 pt-4">
+                    <div className="prose prose-sm max-w-none text-foreground/80">
+                      {a.detail.split("\n\n").map((paragraph: string, pi: number) => {
+                        if (paragraph.startsWith("• ") || paragraph.startsWith("- ")) {
+                          return (
+                            <ul key={pi} className="my-2 ml-4 list-disc space-y-1">
+                              {paragraph.split("\n").map((line: string, li: number) => (
+                                <li key={li} className="text-xs leading-relaxed text-foreground/70">
+                                  {line.replace(/^[•\-]\s*/, "")}
+                                </li>
+                              ))}
+                            </ul>
+                          );
+                        }
+                        if (paragraph.startsWith("##")) {
+                          return (
+                            <h4 key={pi} className="mb-2 mt-4 text-xs font-semibold uppercase tracking-wider text-foreground/90">
+                              {paragraph.replace(/^##\s*/, "")}
+                            </h4>
+                          );
+                        }
+                        return (
+                          <p key={pi} className="mb-3 text-xs leading-relaxed text-foreground/70">
+                            {paragraph}
+                          </p>
+                        );
+                      })}
+                    </div>
+                    <p className="mt-4 text-[10px] italic text-foreground/40">{t.learnDisclaimer}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
