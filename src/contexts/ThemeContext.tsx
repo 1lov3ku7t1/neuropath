@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-type Theme = "dark-glass" | "white-purple";
+type Theme = "dark-glass" | "white-purple" | "ocean-blue" | "rose-gold" | "forest-green";
 
 interface ThemeContextType {
   theme: Theme;
@@ -14,16 +14,17 @@ const ThemeContext = createContext<ThemeContextType>({
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setThemeState] = useState<Theme>(() => {
-    const saved = localStorage.getItem("neuropath-theme");
-    return (saved === "white-purple" ? "white-purple" : "dark-glass") as Theme;
+    const saved = localStorage.getItem("neuropath-theme") as Theme | null;
+    const valid: Theme[] = ["dark-glass", "white-purple", "ocean-blue", "rose-gold", "forest-green"];
+    return saved && valid.includes(saved) ? saved : "dark-glass";
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === "white-purple") {
-      root.classList.add("theme-white-purple");
-    } else {
-      root.classList.remove("theme-white-purple");
+    const themes = ["theme-white-purple", "theme-ocean-blue", "theme-rose-gold", "theme-forest-green"];
+    themes.forEach(t => root.classList.remove(t));
+    if (theme !== "dark-glass") {
+      root.classList.add(`theme-${theme}`);
     }
   }, [theme]);
 

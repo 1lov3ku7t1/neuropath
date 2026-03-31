@@ -60,24 +60,27 @@ const SettingsMenu = ({ open, onClose }: SettingsMenuProps) => {
             {t.theme}
           </div>
           <div className="flex flex-col gap-2">
-            <button
-              onClick={() => setTheme("dark-glass")}
-              className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm transition-transform hover:scale-105 ${
-                theme === "dark-glass" ? "liquid-glass-strong text-foreground" : "text-foreground/50"
-              }`}
-            >
-              <span className="h-5 w-5 rounded-full bg-foreground/80" />
-              {t.darkGlass}
-            </button>
-            <button
-              onClick={() => setTheme("white-purple")}
-              className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm transition-transform hover:scale-105 ${
-                theme === "white-purple" ? "liquid-glass-strong text-foreground" : "text-foreground/50"
-              }`}
-            >
-              <span className="h-5 w-5 rounded-full" style={{ background: "linear-gradient(135deg, #fff 50%, #7c3aed 50%)" }} />
-              {t.whitePurple}
-            </button>
+            {([
+              { id: "dark-glass" as const, label: t.darkGlass, swatch: "bg-foreground/80" },
+              { id: "white-purple" as const, label: t.whitePurple, gradient: "linear-gradient(135deg, #fff 50%, #7c3aed 50%)" },
+              { id: "ocean-blue" as const, label: t.oceanBlue, gradient: "linear-gradient(135deg, #0f172a 50%, #3b82f6 50%)" },
+              { id: "rose-gold" as const, label: t.roseGold, gradient: "linear-gradient(135deg, #fdf2f8 50%, #e11d48 50%)" },
+              { id: "forest-green" as const, label: t.forestGreen, gradient: "linear-gradient(135deg, #052e16 50%, #22c55e 50%)" },
+            ]).map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setTheme(item.id)}
+                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm transition-transform hover:scale-105 ${
+                  theme === item.id ? "liquid-glass-strong text-foreground" : "text-foreground/50"
+                }`}
+              >
+                <span
+                  className={`h-5 w-5 rounded-full ${item.swatch || ""}`}
+                  style={item.gradient ? { background: item.gradient } : undefined}
+                />
+                {item.label}
+              </button>
+            ))}
           </div>
         </div>
       </div>
