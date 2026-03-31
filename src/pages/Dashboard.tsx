@@ -111,7 +111,7 @@ const Dashboard = () => {
             Your <span className="font-serif italic text-foreground/80">Assessment</span> Hub
           </h1>
           <p className="mb-8 text-sm text-foreground/60">
-            Welcome back, {user?.user_metadata?.full_name || user?.email}
+            {isGuest ? "You're browsing as a guest — results won't be saved" : `Welcome back, ${user?.user_metadata?.full_name || user?.email}`}
           </p>
 
           {/* Test Cards */}
