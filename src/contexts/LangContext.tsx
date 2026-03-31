@@ -175,7 +175,7 @@ const translations = {
 
     welcomeBack: "С возвращением",
     createAccount: "Создать аккаунт",
-    signInDesc: "Войдите в ваш аккаунт NeuroPath",
+    signInDesc: "Войдите в ваш аккаунт NeuroTrack",
     signUpDesc: "Начните путь к здоровью",
     fullName: "Полное имя",
     email: "Эл. почта",
