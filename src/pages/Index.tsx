@@ -81,16 +81,19 @@ const Index = () => {
             </button>
 
             <div className="mb-12 flex flex-wrap gap-2">
-              {["Symptom Tracking", "AI Advisor", "Treatment Guide"].map(
-                (label) => (
-                  <span
-                    key={label}
-                    className="liquid-glass rounded-full px-4 py-1.5 text-xs text-foreground/80"
+              {[
+                { label: "Symptom Tracking", path: "/test/symptoms" },
+                { label: "AI Advisor", path: "/test/voice" },
+                { label: "Treatment Guide", path: "/test/spiral" },
+              ].map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => navigate(item.path)}
+                    className="liquid-glass cursor-pointer rounded-full px-4 py-1.5 text-xs text-foreground/80 transition-transform hover:scale-105 active:scale-95"
                   >
-                    {label}
-                  </span>
-                )
-              )}
+                    {item.label}
+                  </button>
+                ))}
             </div>
           </div>
 
@@ -143,7 +146,10 @@ const Index = () => {
 
           {/* Community Card */}
           <div className="mt-6 self-end">
-            <div className="liquid-glass w-56 rounded-2xl p-5">
+            <button
+              onClick={() => navigate("/auth")}
+              className="liquid-glass w-56 cursor-pointer rounded-2xl p-5 text-left transition-transform hover:scale-105"
+            >
               <h3 className="mb-2 text-sm font-medium text-foreground">
                 Join our ecosystem
               </h3>
@@ -151,7 +157,7 @@ const Index = () => {
                 Connecting patients, caregivers and neurologists in one unified
                 platform.
               </p>
-            </div>
+            </button>
           </div>
 
           {/* Bottom Feature Section */}
@@ -159,7 +165,10 @@ const Index = () => {
             <div className="liquid-glass rounded-[2.5rem] p-4">
               {/* Two side-by-side cards */}
               <div className="mb-4 grid grid-cols-2 gap-4">
-                <div className="liquid-glass flex flex-col gap-3 rounded-3xl p-5">
+                <button
+                  onClick={() => navigate("/test/spiral")}
+                  className="liquid-glass flex cursor-pointer flex-col gap-3 rounded-3xl p-5 text-left transition-transform hover:scale-[1.03]"
+                >
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/10">
                     <Wand2 className="h-4 w-4 text-foreground" />
                   </div>
@@ -170,8 +179,11 @@ const Index = () => {
                     Real-time neural analysis powered by advanced machine
                     learning models.
                   </p>
-                </div>
-                <div className="liquid-glass flex flex-col gap-3 rounded-3xl p-5">
+                </button>
+                <button
+                  onClick={() => navigate("/test/tapping")}
+                  className="liquid-glass flex cursor-pointer flex-col gap-3 rounded-3xl p-5 text-left transition-transform hover:scale-[1.03]"
+                >
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/10">
                     <BookOpen className="h-4 w-4 text-foreground" />
                   </div>
@@ -182,11 +194,13 @@ const Index = () => {
                     Comprehensive treatment history and care documentation at
                     your fingertips.
                   </p>
-                </div>
+                </button>
               </div>
 
-              {/* Bottom card */}
-              <div className="liquid-glass flex items-center gap-4 rounded-3xl p-5">
+              <button
+                onClick={() => navigate("/test/voice")}
+                className="liquid-glass flex w-full cursor-pointer items-center gap-4 rounded-3xl p-5 text-left transition-transform hover:scale-[1.02]"
+              >
                 <div className="flex h-16 w-24 flex-shrink-0 items-center justify-center rounded-2xl bg-foreground/5">
                   <Microscope className="h-8 w-8 text-foreground/60" />
                 </div>
@@ -199,10 +213,10 @@ const Index = () => {
                     precision.
                   </p>
                 </div>
-                <button className="liquid-glass flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-foreground transition-transform hover:scale-105 active:scale-95">
+                <span className="liquid-glass flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-foreground">
                   <Plus className="h-4 w-4" />
-                </button>
-              </div>
+                </span>
+              </button>
             </div>
           </div>
         </div>
