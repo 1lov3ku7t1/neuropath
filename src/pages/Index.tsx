@@ -165,7 +165,10 @@ const Index = () => {
             <div className="liquid-glass rounded-[2.5rem] p-4">
               {/* Two side-by-side cards */}
               <div className="mb-4 grid grid-cols-2 gap-4">
-                <div className="liquid-glass flex flex-col gap-3 rounded-3xl p-5">
+                <button
+                  onClick={() => navigate("/test/spiral")}
+                  className="liquid-glass flex cursor-pointer flex-col gap-3 rounded-3xl p-5 text-left transition-transform hover:scale-[1.03]"
+                >
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/10">
                     <Wand2 className="h-4 w-4 text-foreground" />
                   </div>
@@ -176,8 +179,11 @@ const Index = () => {
                     Real-time neural analysis powered by advanced machine
                     learning models.
                   </p>
-                </div>
-                <div className="liquid-glass flex flex-col gap-3 rounded-3xl p-5">
+                </button>
+                <button
+                  onClick={() => navigate("/test/tapping")}
+                  className="liquid-glass flex cursor-pointer flex-col gap-3 rounded-3xl p-5 text-left transition-transform hover:scale-[1.03]"
+                >
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/10">
                     <BookOpen className="h-4 w-4 text-foreground" />
                   </div>
@@ -188,7 +194,7 @@ const Index = () => {
                     Comprehensive treatment history and care documentation at
                     your fingertips.
                   </p>
-                </div>
+                </button>
               </div>
 
               {/* Bottom card */}
