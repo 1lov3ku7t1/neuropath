@@ -105,10 +105,10 @@ const VoiceTest = () => {
             <button
               onClick={recording ? stopRecording : startRecording}
               className={`mb-4 flex h-24 w-24 items-center justify-center rounded-full transition-transform hover:scale-110 active:scale-95 ${
-                recording ? "bg-red-500/20" : "bg-foreground/10"
+                recording ? "bg-destructive/20" : "bg-foreground/10"
               }`}
             >
-              {recording ? <MicOff className="h-8 w-8 text-red-400" /> : <Mic className="h-8 w-8 text-foreground" />}
+              {recording ? <MicOff className="h-8 w-8 text-destructive" /> : <Mic className="h-8 w-8 text-foreground" />}
             </button>
             <p className="text-sm text-foreground/60">
               {recording ? `Recording... ${duration}s` : audioBlob ? `Recorded ${duration}s` : "Tap to start recording"}
