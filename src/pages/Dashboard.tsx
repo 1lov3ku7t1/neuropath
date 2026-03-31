@@ -41,10 +41,15 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [results, setResults] = useState<TestResult[]>([]);
   const [loading, setLoading] = useState(true);
+  const isGuest = !user;
 
   useEffect(() => {
-    fetchResults();
-  }, []);
+    if (user) {
+      fetchResults();
+    } else {
+      setLoading(false);
+    }
+  }, [user]);
 
   const fetchResults = async () => {
     const { data, error } = await (supabase as any)
@@ -57,6 +62,10 @@ const Dashboard = () => {
   };
 
   const handleSignOut = async () => {
+    if (isGuest) {
+      navigate("/");
+      return;
+    }
     await signOut();
     navigate("/");
   };
