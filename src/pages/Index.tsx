@@ -197,8 +197,10 @@ const Index = () => {
                 </button>
               </div>
 
-              {/* Bottom card */}
-              <div className="liquid-glass flex items-center gap-4 rounded-3xl p-5">
+              <button
+                onClick={() => navigate("/test/voice")}
+                className="liquid-glass flex w-full cursor-pointer items-center gap-4 rounded-3xl p-5 text-left transition-transform hover:scale-[1.02]"
+              >
                 <div className="flex h-16 w-24 flex-shrink-0 items-center justify-center rounded-2xl bg-foreground/5">
                   <Microscope className="h-8 w-8 text-foreground/60" />
                 </div>
@@ -211,10 +213,10 @@ const Index = () => {
                     precision.
                   </p>
                 </div>
-                <button className="liquid-glass flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-foreground transition-transform hover:scale-105 active:scale-95">
+                <span className="liquid-glass flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-foreground">
                   <Plus className="h-4 w-4" />
-                </button>
-              </div>
+                </span>
+              </button>
             </div>
           </div>
         </div>
