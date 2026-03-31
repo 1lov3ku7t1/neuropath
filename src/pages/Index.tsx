@@ -70,7 +70,10 @@ const Index = () => {
               of neural AI
             </h1>
 
-            <button className="liquid-glass-strong mb-8 flex items-center gap-3 rounded-full px-7 py-4 text-sm font-medium text-foreground transition-transform hover:scale-105 active:scale-95">
+            <button
+              onClick={() => navigate("/auth")}
+              className="liquid-glass-strong mb-8 flex items-center gap-3 rounded-full px-7 py-4 text-sm font-medium text-foreground transition-transform hover:scale-105 active:scale-95"
+            >
               Start Your Journey
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-foreground/15">
                 <Download className="h-3.5 w-3.5" />
