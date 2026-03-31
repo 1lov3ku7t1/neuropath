@@ -32,7 +32,7 @@ const translations = {
     // Auth
     welcomeBack: "Welcome back",
     createAccount: "Create account",
-    signInDesc: "Sign in to your NeuroPath account",
+    signInDesc: "Sign in to your NeuroTrack account",
     signUpDesc: "Start your neural health journey",
     fullName: "Full Name",
     email: "Email",
