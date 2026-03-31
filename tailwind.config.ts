@@ -12,6 +12,10 @@ export default {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      display: ['Poppins', 'sans-serif'],
+      serif: ['"Source Serif 4"', 'serif'],
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
