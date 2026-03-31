@@ -94,8 +94,16 @@ const Dashboard = () => {
             onClick={handleSignOut}
             className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-foreground transition-transform hover:scale-105"
           >
-            <LogOut className="h-4 w-4" /> Sign Out
+            <LogOut className="h-4 w-4" /> {isGuest ? "Exit" : "Sign Out"}
           </button>
+          {isGuest && (
+            <button
+              onClick={() => navigate("/auth")}
+              className="liquid-glass-strong flex items-center gap-2 rounded-full px-4 py-2 text-sm text-foreground transition-transform hover:scale-105"
+            >
+              Sign up to save results
+            </button>
+          )}
         </nav>
 
         <div className="mx-auto max-w-6xl">
