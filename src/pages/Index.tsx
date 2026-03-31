@@ -81,16 +81,19 @@ const Index = () => {
             </button>
 
             <div className="mb-12 flex flex-wrap gap-2">
-              {["Symptom Tracking", "AI Advisor", "Treatment Guide"].map(
-                (label) => (
-                  <span
-                    key={label}
-                    className="liquid-glass rounded-full px-4 py-1.5 text-xs text-foreground/80"
+              {[
+                { label: "Symptom Tracking", path: "/test/symptoms" },
+                { label: "AI Advisor", path: "/test/voice" },
+                { label: "Treatment Guide", path: "/test/spiral" },
+              ].map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => navigate(item.path)}
+                    className="liquid-glass cursor-pointer rounded-full px-4 py-1.5 text-xs text-foreground/80 transition-transform hover:scale-105 active:scale-95"
                   >
-                    {label}
-                  </span>
-                )
-              )}
+                    {item.label}
+                  </button>
+                ))}
             </div>
           </div>
 
