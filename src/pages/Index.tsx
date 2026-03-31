@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 
 const Index = () => {
+  const navigate = useNavigate();
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
       {/* Video Background */}
