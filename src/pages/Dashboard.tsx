@@ -5,7 +5,7 @@ import { useLang } from "@/contexts/LangContext";
 import { supabase } from "@/integrations/supabase/client";
 import SettingsMenu from "@/components/SettingsMenu";
 import {
-  Brain, PenTool, Mic, ClipboardList, Hand, LogOut, TrendingUp, Calendar, ArrowRight, Menu,
+  Brain, PenTool, Mic, ClipboardList, Hand, LogOut, TrendingUp, Calendar, ArrowRight, Menu, BookOpen, Gamepad2,
 } from "lucide-react";
 
 interface TestResult {
@@ -115,6 +115,30 @@ const Dashboard = () => {
                 </div>
               </Link>
             ))}
+          </div>
+
+          {/* Learn & Games */}
+          <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Link to="/learn" className="liquid-glass group flex items-center gap-4 rounded-2xl p-5 transition-transform hover:scale-[1.03]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-foreground/10">
+                <BookOpen className="h-5 w-5 text-foreground" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-sm font-medium text-foreground">{t.learnPage}</h3>
+                <p className="text-xs text-foreground/60">{t.learnIntro?.slice(0, 60)}...</p>
+              </div>
+              <ArrowRight className="h-4 w-4 text-foreground/40 group-hover:text-foreground/80" />
+            </Link>
+            <Link to="/games" className="liquid-glass group flex items-center gap-4 rounded-2xl p-5 transition-transform hover:scale-[1.03]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-foreground/10">
+                <Gamepad2 className="h-5 w-5 text-foreground" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-sm font-medium text-foreground">{t.gamesPage}</h3>
+                <p className="text-xs text-foreground/60">{t.gamesIntro?.slice(0, 60)}...</p>
+              </div>
+              <ArrowRight className="h-4 w-4 text-foreground/40 group-hover:text-foreground/80" />
+            </Link>
           </div>
 
           <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-foreground/50">{t.recentResults}</h2>
