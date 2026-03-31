@@ -55,11 +55,11 @@ const SymptomTest = () => {
       if (error) throw error;
       setResult(data);
 
-      await supabase.from("test_results").insert({
+      await (supabase as any).from("test_results").insert({
         user_id: user!.id,
-        test_type: "symptom_questionnaire" as any,
+        test_type: "symptom_questionnaire",
         score: data.score,
-        risk_level: data.risk_level as any,
+        risk_level: data.risk_level,
         details: { responses, analysis: data.analysis, recommendations: data.recommendations },
       });
     } catch (err: any) {

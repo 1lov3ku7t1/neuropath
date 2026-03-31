@@ -47,7 +47,7 @@ const Dashboard = () => {
   }, []);
 
   const fetchResults = async () => {
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from("test_results")
       .select("*")
       .order("created_at", { ascending: false });
