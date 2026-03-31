@@ -114,6 +114,19 @@ const Auth = () => {
             </button>
           </form>
 
+          <div className="mt-4 flex items-center gap-3">
+            <span className="h-px flex-1 bg-foreground/10" />
+            <span className="text-[10px] uppercase tracking-widest text-foreground/30">or</span>
+            <span className="h-px flex-1 bg-foreground/10" />
+          </div>
+
+          <button
+            onClick={() => navigate("/dashboard?guest=true")}
+            className="liquid-glass mt-4 w-full rounded-xl py-3 text-sm text-foreground/70 transition-transform hover:scale-[1.02] active:scale-[0.98]"
+          >
+            Continue as Guest
+          </button>
+
           <p className="mt-6 text-center text-xs text-foreground/50">
             {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
             <button

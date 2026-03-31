@@ -115,13 +115,15 @@ const SpiralTest = () => {
       if (error) throw error;
       setResult(data);
 
-      await (supabase as any).from("test_results").insert({
-        user_id: user!.id,
-        test_type: "spiral_drawing",
-        score: data.score,
-        risk_level: data.risk_level,
-        details: { metrics, analysis: data.analysis, recommendations: data.recommendations },
-      });
+      if (user) {
+        await (supabase as any).from("test_results").insert({
+          user_id: user.id,
+          test_type: "spiral_drawing",
+          score: data.score,
+          risk_level: data.risk_level,
+          details: { metrics, analysis: data.analysis, recommendations: data.recommendations },
+        });
+      }
     } catch (err: any) {
       toast({ title: "Error", description: err.message, variant: "destructive" });
     } finally {

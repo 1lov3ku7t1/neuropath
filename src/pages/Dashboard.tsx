@@ -41,10 +41,15 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [results, setResults] = useState<TestResult[]>([]);
   const [loading, setLoading] = useState(true);
+  const isGuest = !user;
 
   useEffect(() => {
-    fetchResults();
-  }, []);
+    if (user) {
+      fetchResults();
+    } else {
+      setLoading(false);
+    }
+  }, [user]);
 
   const fetchResults = async () => {
     const { data, error } = await (supabase as any)
@@ -57,6 +62,10 @@ const Dashboard = () => {
   };
 
   const handleSignOut = async () => {
+    if (isGuest) {
+      navigate("/");
+      return;
+    }
     await signOut();
     navigate("/");
   };
@@ -85,8 +94,16 @@ const Dashboard = () => {
             onClick={handleSignOut}
             className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-foreground transition-transform hover:scale-105"
           >
-            <LogOut className="h-4 w-4" /> Sign Out
+            <LogOut className="h-4 w-4" /> {isGuest ? "Exit" : "Sign Out"}
           </button>
+          {isGuest && (
+            <button
+              onClick={() => navigate("/auth")}
+              className="liquid-glass-strong flex items-center gap-2 rounded-full px-4 py-2 text-sm text-foreground transition-transform hover:scale-105"
+            >
+              Sign up to save results
+            </button>
+          )}
         </nav>
 
         <div className="mx-auto max-w-6xl">
@@ -94,7 +111,7 @@ const Dashboard = () => {
             Your <span className="font-serif italic text-foreground/80">Assessment</span> Hub
           </h1>
           <p className="mb-8 text-sm text-foreground/60">
-            Welcome back, {user?.user_metadata?.full_name || user?.email}
+            {isGuest ? "You're browsing as a guest — results won't be saved" : `Welcome back, ${user?.user_metadata?.full_name || user?.email}`}
           </p>
 
           {/* Test Cards */}
