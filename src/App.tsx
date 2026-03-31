@@ -26,7 +26,7 @@ const App = () => (
         <ThemeProvider>
           <Toaster />
           <Sonner />
-          <BrowserRouter>
+          <BrowserRouter basename="/neuropath">
             <AuthProvider>
               <Routes>
                 <Route path="/" element={<Index />} />
