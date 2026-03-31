@@ -149,7 +149,7 @@ const translations = {
     close: "Close",
   },
   ru: {
-    neuropath: "нейропуть",
+    neuropath: "нейротрек",
     menu: "Меню",
     heroLine1: "Продвигая",
     heroLine2: "дух",
